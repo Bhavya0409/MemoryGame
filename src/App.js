@@ -1,25 +1,20 @@
 import React, { Component } from 'react';
-import logo from './logo.svg';
-import './App.css';
+import './App.scss';
+import GameBoard from './GameBoard';
+import OpeningForm from './OpeningForm';
 
 class App extends Component {
+
+  state = {
+    gameStarted: false,
+    selected: []
+  };
+
   render() {
+    const {gameStarted} = this.state;
     return (
       <div className="App">
-        <header className="App-header">
-          <img src={logo} className="App-logo" alt="logo" />
-          <p>
-            Edit <code>src/App.js</code> and save to reload.
-          </p>
-          <a
-            className="App-link"
-            href="https://reactjs.org"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Learn React
-          </a>
-        </header>
+        {gameStarted ? <GameBoard/> : <OpeningForm/>}
       </div>
     );
   }
